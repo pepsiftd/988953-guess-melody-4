@@ -8,7 +8,7 @@ import QuestionGenre from '@/components/question-genre/question-genre';
 
 const welcomeButtonClickHandler = () => {};
 
-const App = ({mistakesCount}) => {
+const App = ({mistakesCount, questions}) => {
   return (
     <BrowserRouter>
       <Switch>
@@ -19,10 +19,14 @@ const App = ({mistakesCount}) => {
           />
         </Route>
         <Route exact path="/question-artist">
-          <QuestionArtist />
+          <QuestionArtist
+            question={questions[1]}
+          />
         </Route>
         <Route exact path="/question-genre">
-          <QuestionGenre />
+          <QuestionGenre
+            question={questions[0]}
+          />
         </Route>
       </Switch>
     </BrowserRouter>
@@ -31,6 +35,7 @@ const App = ({mistakesCount}) => {
 
 App.propTypes = {
   mistakesCount: PropTypes.number.isRequired,
+  questions: PropTypes.array.isRequired,
 };
 
 export default App;
