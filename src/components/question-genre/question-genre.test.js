@@ -1,10 +1,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import QuestionArtist from './question-artist';
+import QuestionGenre from './question-genre';
 
-it(`QuestionArtist should render correctly`, () => {
+it(`QuestionGenre should render correctly`, () => {
   const tree = renderer.create(
-      <QuestionArtist />
+      <QuestionGenre />
   ).toJSON();
 
   expect(tree).toMatchSnapshot();
