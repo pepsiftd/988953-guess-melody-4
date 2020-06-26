@@ -68,6 +68,7 @@ class QuestionGenre extends PureComponent {
                           answers: [...userAnswers.slice(0, index), value, ...userAnswers.slice(index + 1)]
                         });
                       }}
+                      checked={userAnswers[index]}
                     />
                     <label className="game__check" htmlFor={`answer-${index + 1}`}>Отметить</label>
                   </div>
