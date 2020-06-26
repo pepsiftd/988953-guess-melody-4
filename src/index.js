@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from '@/components/app/app';
-import questions from '@/mock/questions';
+import questions from '@/mocks/questions';
 
 const Settings = {
   MISTAKES_COUNT: 3

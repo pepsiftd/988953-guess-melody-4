@@ -98,11 +98,11 @@ exports[`QuestionArtist should render correctly 1`] = `
           htmlFor="answer-1"
         >
           <img
-            alt="Пелагея"
+            alt="Space"
             className="artist__picture"
             src="http://placehold.it/134x134"
           />
-          Пелагея
+          Space
         </label>
       </div>
       <div
@@ -120,11 +120,11 @@ exports[`QuestionArtist should render correctly 1`] = `
           htmlFor="answer-2"
         >
           <img
-            alt="Пелагея"
+            alt="Бахыт компот"
             className="artist__picture"
             src="http://placehold.it/134x134"
           />
-          Краснознаменная дивизия имени моей бабушки
+          Бахыт компот
         </label>
       </div>
       <div
@@ -142,11 +142,11 @@ exports[`QuestionArtist should render correctly 1`] = `
           htmlFor="answer-3"
         >
           <img
-            alt="Пелагея"
+            alt="Stereophonics"
             className="artist__picture"
             src="http://placehold.it/134x134"
           />
-          Lorde
+          Stereophonics
         </label>
       </div>
     </form>

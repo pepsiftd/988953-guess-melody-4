@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react';
+import PropTypes from 'prop-types';
 
 class QuestionGenre extends PureComponent {
   constructor(props) {
@@ -6,6 +7,9 @@ class QuestionGenre extends PureComponent {
   }
 
   render() {
+    const {question} = this.props;
+    const {answers} = question;
+
     return (
       <section className="game game--genre">
         <header className="game__header">
@@ -31,51 +35,22 @@ class QuestionGenre extends PureComponent {
         </header>
 
         <section className="game__screen">
-          <h2 className="game__title">Выберите инди-рок треки</h2>
+          <h2 className="game__title">Выберите {question.genre} треки</h2>
           <form className="game__tracks">
-            <div className="track">
-              <button className="track__button track__button--play" type="button"></button>
-              <div className="track__status">
-                <audio></audio>
-              </div>
-              <div className="game__answer">
-                <input className="game__input visually-hidden" type="checkbox" name="answer" value="answer-1" id="answer-1"/>
-                <label className="game__check" htmlFor="answer-1">Отметить</label>
-              </div>
-            </div>
-
-            <div className="track">
-              <button className="track__button track__button--play" type="button"></button>
-              <div className="track__status">
-                <audio></audio>
-              </div>
-              <div className="game__answer">
-                <input className="game__input visually-hidden" type="checkbox" name="answer" value="answer-1" id="answer-2"/>
-                <label className="game__check" htmlFor="answer-2">Отметить</label>
-              </div>
-            </div>
-
-            <div className="track">
-              <button className="track__button track__button--pause" type="button"></button>
-              <div className="track__status">
-                <audio></audio>
-              </div>
-              <div className="game__answer">
-                <input className="game__input visually-hidden" type="checkbox" name="answer" value="answer-1" id="answer-3"/>
-                <label className="game__check" htmlFor="answer-3">Отметить</label>
-              </div>
-            </div>
-
-            <div className="track">
-              <button className="track__button track__button--play" type="button"></button>
-              <div className="track__status">
-                <audio></audio>
-              </div>
-              <div className="game__answer">
-                <input className="game__input visually-hidden" type="checkbox" name="answer" value="answer-1" id="answer-4"/>
-                <label className="game__check" htmlFor="answer-4">Отметить</label>
-              </div>
-            </div>
+            {answers.map((answer, index) => {
+              return (
+                <div key={answer.src} className="track">
+                  <button className="track__button track__button--play" type="button"></button>
+                  <div className="track__status">
+                    <audio></audio>
+                  </div>
+                  <div className="game__answer">
+                    <input className="game__input visually-hidden" type="checkbox" name="answer" value={`answer-${index + 1}`} id={`answer-${index + 1}`}/>
+                    <label className="game__check" htmlFor={`answer-${index + 1}`}>Отметить</label>
+                  </div>
+                </div>
+              );
+            })}
 
             <button className="game__submit button" type="submit">Ответить</button>
           </form>
@@ -84,5 +59,14 @@ class QuestionGenre extends PureComponent {
     );
   }
 }
+
+QuestionGenre.propTypes = {
+  question: PropTypes.shape({
+    genre: PropTypes.string.isRequired,
+    answers: PropTypes.arrayOf(PropTypes.shape({
+      src: PropTypes.string.isRequired,
+      genre: PropTypes.string.isRequired,
+    })).isRequired}).isRequired
+};
 
 export default QuestionGenre;
