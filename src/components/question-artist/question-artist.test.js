@@ -24,6 +24,7 @@ it(`QuestionArtist should render correctly`, () => {
   const tree = renderer.create(
       <QuestionArtist
         question={question}
+        onAnswer={() => {}}
       />
   ).toJSON();
 

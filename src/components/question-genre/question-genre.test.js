@@ -24,6 +24,7 @@ it(`QuestionGenre should render correctly`, () => {
   const tree = renderer.create(
       <QuestionGenre
         question={question}
+        onAnswer={() => {}}
       />
   ).toJSON();
 

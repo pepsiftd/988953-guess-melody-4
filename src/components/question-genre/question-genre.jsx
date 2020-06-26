@@ -4,11 +4,16 @@ import PropTypes from 'prop-types';
 class QuestionGenre extends PureComponent {
   constructor(props) {
     super(props);
+
+    this.state = {
+      answers: [false, false, false, false],
+    };
   }
 
   render() {
-    const {question} = this.props;
+    const {question, onAnswer} = this.props;
     const {answers} = question;
+    const {answers: userAnswers} = this.state;
 
     return (
       <section className="game game--genre">
@@ -36,7 +41,13 @@ class QuestionGenre extends PureComponent {
 
         <section className="game__screen">
           <h2 className="game__title">Выберите {question.genre} треки</h2>
-          <form className="game__tracks">
+          <form
+            className="game__tracks"
+            onSubmit={(evt) => {
+              evt.preventDefault();
+              onAnswer(question, this.state.answers);
+            }}
+          >
             {answers.map((answer, index) => {
               return (
                 <div key={answer.src} className="track">
@@ -45,7 +56,19 @@ class QuestionGenre extends PureComponent {
                     <audio></audio>
                   </div>
                   <div className="game__answer">
-                    <input className="game__input visually-hidden" type="checkbox" name="answer" value={`answer-${index + 1}`} id={`answer-${index + 1}`}/>
+                    <input
+                      className="game__input visually-hidden"
+                      type="checkbox"
+                      name="answer"
+                      value={`answer-${index + 1}`}
+                      id={`answer-${index + 1}`}
+                      onChange={(evt) => {
+                        const value = evt.target.checked;
+                        this.setState({
+                          answers: [...userAnswers.slice(0, index), value, ...userAnswers.slice(index + 1)]
+                        });
+                      }}
+                    />
                     <label className="game__check" htmlFor={`answer-${index + 1}`}>Отметить</label>
                   </div>
                 </div>
@@ -66,7 +89,8 @@ QuestionGenre.propTypes = {
     answers: PropTypes.arrayOf(PropTypes.shape({
       src: PropTypes.string.isRequired,
       genre: PropTypes.string.isRequired,
-    })).isRequired}).isRequired
+    })).isRequired}).isRequired,
+  onAnswer: PropTypes.func.isRequired
 };
 
 export default QuestionGenre;

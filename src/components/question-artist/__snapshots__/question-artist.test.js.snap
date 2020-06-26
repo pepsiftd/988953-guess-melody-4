@@ -90,6 +90,7 @@ exports[`QuestionArtist should render correctly 1`] = `
           className="artist__input visually-hidden"
           id="answer-1"
           name="answer"
+          onChange={[Function]}
           type="radio"
           value="artist-1"
         />
@@ -112,6 +113,7 @@ exports[`QuestionArtist should render correctly 1`] = `
           className="artist__input visually-hidden"
           id="answer-2"
           name="answer"
+          onChange={[Function]}
           type="radio"
           value="artist-2"
         />
@@ -134,6 +136,7 @@ exports[`QuestionArtist should render correctly 1`] = `
           className="artist__input visually-hidden"
           id="answer-3"
           name="answer"
+          onChange={[Function]}
           type="radio"
           value="artist-3"
         />

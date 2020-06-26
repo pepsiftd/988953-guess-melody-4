@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const QuestionArtist = ({question}) => {
+const QuestionArtist = ({question, onAnswer}) => {
   const {answers} = question;
 
   return (
@@ -44,7 +44,17 @@ const QuestionArtist = ({question}) => {
           {answers.map((answer, index) => {
             return (
               <div key={answer.artist} className="artist">
-                <input className="artist__input visually-hidden" type="radio" name="answer" value={`artist-${index + 1}`} id={`answer-${index + 1}`}/>
+                <input
+                  className="artist__input visually-hidden"
+                  type="radio"
+                  name="answer"
+                  value={`artist-${index + 1}`}
+                  id={`answer-${index + 1}`}
+                  onChange={(evt) => {
+                    evt.preventDefault();
+                    onAnswer(question, answer);
+                  }}
+                />
                 <label className="artist__name" htmlFor={`answer-${index + 1}`}>
                   <img className="artist__picture" src={answer.picture} alt={answer.artist}/>
                   {answer.artist}
@@ -68,7 +78,8 @@ QuestionArtist.propTypes = {
       picture: PropTypes.string.isRequired,
       artist: PropTypes.string.isRequired,
     })).isRequired
-  }).isRequired
+  }).isRequired,
+  onAnswer: PropTypes.func.isRequired
 };
 
 export default QuestionArtist;
