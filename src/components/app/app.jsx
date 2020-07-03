@@ -20,9 +20,7 @@ class App extends PureComponent {
     };
   }
 
-  _renderGameScreen() {
-    const {mistakesCount, questions} = this.props;
-    const step = this.state.step;
+  _renderGameScreen(mistakesCount, questions, step) {
     const question = questions[step];
 
     if (step === -1 || step >= questions.length) {
@@ -70,13 +68,14 @@ class App extends PureComponent {
   }
 
   render() {
-    const {questions} = this.props;
+    const {mistakesCount, questions} = this.props;
+    const step = this.state.step;
 
     return (
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            {this._renderGameScreen()}
+            {this._renderGameScreen(mistakesCount, questions, step)}
           </Route>
           <Route exact path="/question-artist">
             <QuestionArtist
