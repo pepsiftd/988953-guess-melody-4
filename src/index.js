@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from '@/components/app/app';
-import questions from '@/mocks/questions';
+import {App} from '@/components/app/app';
+import {questions} from '@/mocks/questions';
 
 const Settings = {
   MISTAKES_COUNT: 3

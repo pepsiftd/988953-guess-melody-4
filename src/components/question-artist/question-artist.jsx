@@ -82,4 +82,4 @@ QuestionArtist.propTypes = {
   onAnswer: PropTypes.func.isRequired
 };
 
-export default QuestionArtist;
+export {QuestionArtist};

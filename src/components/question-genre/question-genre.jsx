@@ -94,4 +94,4 @@ QuestionGenre.propTypes = {
   onAnswer: PropTypes.func.isRequired
 };
 
-export default QuestionGenre;
+export {QuestionGenre};

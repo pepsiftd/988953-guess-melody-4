@@ -22,4 +22,4 @@ WelcomeScreen.propTypes = {
   welcomeButtonClickHandler: PropTypes.func.isRequired,
 };
 
-export default WelcomeScreen;
+export {WelcomeScreen};

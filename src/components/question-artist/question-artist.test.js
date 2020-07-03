@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import QuestionArtist from './question-artist';
+import {QuestionArtist} from './question-artist';
 
 const question = {
   type: `artist`,

@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import QuestionGenre from './question-genre';
+import {QuestionGenre} from './question-genre';
 
 const question = {
   type: `genre`,

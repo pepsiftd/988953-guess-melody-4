@@ -2,9 +2,9 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
-import WelcomeScreen from '@/components/welcome-screen/welcome-screen';
-import QuestionArtist from '@/components/question-artist/question-artist';
-import QuestionGenre from '@/components/question-genre/question-genre';
+import {WelcomeScreen} from '@/components/welcome-screen/welcome-screen';
+import {QuestionArtist} from '@/components/question-artist/question-artist';
+import {QuestionGenre} from '@/components/question-genre/question-genre';
 
 const GameType = {
   ARTIST: `artist`,
@@ -100,4 +100,4 @@ App.propTypes = {
   questions: PropTypes.array.isRequired,
 };
 
-export default App;
+export {App};
