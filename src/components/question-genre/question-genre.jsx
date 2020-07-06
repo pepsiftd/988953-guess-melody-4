@@ -1,6 +1,8 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 
+import {AudioPlayer} from '@/components/audio-player/audio-player';
+
 class QuestionGenre extends PureComponent {
   constructor(props) {
     super(props);
@@ -28,10 +30,10 @@ class QuestionGenre extends PureComponent {
           {answers.map((answer, index) => {
             return (
               <div key={answer.src} className="track">
-                <button className="track__button track__button--play" type="button"></button>
-                <div className="track__status">
-                  <audio></audio>
-                </div>
+                <AudioPlayer
+                  isPlaying={false}
+                  src={answer.src}
+                />
                 <div className="game__answer">
                   <input
                     className="game__input visually-hidden"
