@@ -56,7 +56,6 @@ class AudioPlayer extends PureComponent {
   render() {
     const {isPlaying, isLoading} = this.state;
     const {onPlayButtonClick} = this.props;
-
     return (
       <Fragment>
         <button
@@ -82,7 +81,7 @@ class AudioPlayer extends PureComponent {
   componentDidUpdate() {
     const audio = this._audioRef.current;
 
-    if (this.state.isPlaying) {
+    if (this.props.isPlaying) {
       audio.play();
     } else {
       audio.pause();

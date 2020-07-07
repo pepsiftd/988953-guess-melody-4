@@ -10,7 +10,7 @@ class QuestionGenre extends PureComponent {
     super(props);
 
     this.state = {
-      activePlayer: NO_ACTIVE_PLAYER,
+      activePlayer: 0,
       answers: [false, false, false, false],
     };
   }

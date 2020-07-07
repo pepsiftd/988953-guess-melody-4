@@ -14,6 +14,7 @@ const QuestionArtist = ({question, onAnswer}) => {
           <AudioPlayer
             isPlaying={true}
             src={song.src}
+            onPlayButtonClick={() => {}}
           />
         </div>
       </div>
