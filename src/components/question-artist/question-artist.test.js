@@ -25,7 +25,12 @@ it(`QuestionArtist should render correctly`, () => {
       <QuestionArtist
         question={question}
         onAnswer={() => {}}
-      />
+      />,
+      {
+        createNodeMock: () => {
+          return {};
+        }
+      }
   ).toJSON();
 
   expect(tree).toMatchSnapshot();
