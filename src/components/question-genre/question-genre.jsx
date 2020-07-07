@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 
 import {AudioPlayer} from '@/components/audio-player/audio-player';
 
+const NO_ACTIVE_PLAYER = -1;
+
 class QuestionGenre extends PureComponent {
   constructor(props) {
     super(props);
 
     this.state = {
+      activePlayer: NO_ACTIVE_PLAYER,
       answers: [false, false, false, false],
     };
   }
@@ -15,7 +18,7 @@ class QuestionGenre extends PureComponent {
   render() {
     const {question, onAnswer} = this.props;
     const {answers} = question;
-    const {answers: userAnswers} = this.state;
+    const {answers: userAnswers, activePlayer} = this.state;
 
     return (
       <section className="game__screen">
@@ -31,8 +34,13 @@ class QuestionGenre extends PureComponent {
             return (
               <div key={answer.src} className="track">
                 <AudioPlayer
-                  isPlaying={false}
+                  isPlaying={index === activePlayer}
                   src={answer.src}
+                  onPlayButtonClick={() => {
+                    this.setState({
+                      activePlayer: index === activePlayer ? NO_ACTIVE_PLAYER : index,
+                    });
+                  }}
                 />
                 <div className="game__answer">
                   <input
