@@ -50,7 +50,6 @@ class AudioPlayer extends PureComponent {
     audio.onpause = null;
     audio.ontimeupdate = null;
     audio.src = ``;
-    audio = null;
   }
 
   render() {

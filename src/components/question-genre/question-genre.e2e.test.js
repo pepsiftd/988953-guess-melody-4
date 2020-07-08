@@ -32,6 +32,7 @@ it(`Genre question form should not be sent`, () => {
       <QuestionGenre
         question={question}
         onAnswer={onAnswer}
+        renderPlayer={() => {}}
       />
   );
 
@@ -51,6 +52,7 @@ it(`Genre question onAnswer should return right data`, () => {
       <QuestionGenre
         question={question}
         onAnswer={onAnswer}
+        renderPlayer={() => {}}
       />
   );
 
