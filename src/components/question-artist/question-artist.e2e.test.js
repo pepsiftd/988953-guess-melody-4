@@ -42,6 +42,7 @@ it(`QuestionArtist's onAnswer returns right data`, () => {
       <QuestionArtist
         question={question}
         onAnswer={onAnswer}
+        renderPlayer={() => {}}
       />
   );
 

@@ -25,7 +25,13 @@ it(`QuestionGenre should render correctly`, () => {
       <QuestionGenre
         question={question}
         onAnswer={() => {}}
-      />
+        renderPlayer={() => {}}
+      />,
+      {
+        createNodeMock: () => {
+          return {};
+        }
+      }
   ).toJSON();
 
   expect(tree).toMatchSnapshot();
