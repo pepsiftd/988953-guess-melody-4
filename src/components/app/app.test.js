@@ -7,16 +7,16 @@ const questions = [{
   type: `genre`,
   genre: `blues`,
   answers: [{
-    src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
+    src: `poweroverwhelming.ogg`,
     genre: `pop`,
   }, {
-    src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
+    src: `somethingfornothing.ogg`,
     genre: `blues`,
   }, {
-    src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
+    src: `battlecruiseroperational.ogg`,
     genre: `pop`,
   }, {
-    src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
+    src: `needalighter.ogg`,
     genre: `rock`,
   }],
 },
@@ -38,13 +38,54 @@ const questions = [{
   }],
 }];
 
-it(`App should render 3 mistakes`, () => {
-  const tree = renderer.create(
-      <App
-        mistakesCount={mistakesCount}
-        questions={questions}
-      />
-  ).toJSON();
+describe(`App renders correctly`, () => {
+  it(`App should Welcome screen`, () => {
+    const tree = renderer.create(
+        <App
+          mistakesCount={mistakesCount}
+          questions={questions}
+          onAnswer={() => {}}
+          onWelcomeButtonClick={() => {}}
+          step={-1}
+        />
+    ).toJSON();
 
-  expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it(`App should render Genre Question`, () => {
+    const tree = renderer.create(
+        <App
+          mistakesCount={mistakesCount}
+          questions={questions}
+          onAnswer={() => {}}
+          onWelcomeButtonClick={() => {}}
+          step={0}
+        />
+    ,{
+      createNodeMock: () => {
+        return {};
+      }
+    }).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it(`App should render artist Question`, () => {
+    const tree = renderer.create(
+        <App
+          mistakesCount={mistakesCount}
+          questions={questions}
+          onAnswer={() => {}}
+          onWelcomeButtonClick={() => {}}
+          step={1}
+        />
+    ,{
+      createNodeMock: () => {
+        return {};
+      }
+    }).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
 });
