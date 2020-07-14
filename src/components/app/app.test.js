@@ -62,11 +62,11 @@ describe(`App renders correctly`, () => {
           onWelcomeButtonClick={() => {}}
           step={0}
         />
-    ,{
-      createNodeMock: () => {
-        return {};
-      }
-    }).toJSON();
+        , {
+          createNodeMock: () => {
+            return {};
+          }
+        }).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
@@ -80,11 +80,11 @@ describe(`App renders correctly`, () => {
           onWelcomeButtonClick={() => {}}
           step={1}
         />
-    ,{
-      createNodeMock: () => {
-        return {};
-      }
-    }).toJSON();
+        , {
+          createNodeMock: () => {
+            return {};
+          }
+        }).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
